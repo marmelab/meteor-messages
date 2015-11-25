@@ -1,0 +1,22 @@
+<template name="messages">
+    <div>
+        <h2>List of mails</h2>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Sent</a></li>
+        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each messages}}
+                <tr>
+                    <td>{{subject}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

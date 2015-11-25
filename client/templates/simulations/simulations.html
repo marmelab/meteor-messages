@@ -1,0 +1,25 @@
+<template name="simulations">
+    <div>
+        <h2>List of simulations</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Slug</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each simulations}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{slug}}</td>
+                    <td>{{startDate}}</td>
+                    <td>{{endDate}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

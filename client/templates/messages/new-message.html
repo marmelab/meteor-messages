@@ -1,0 +1,35 @@
+<template name="newMessage">
+    <h1>Send a message</h1>
+    <form class="new-message">
+        <div class="form-group">
+            <select name="messageEmitter" class="form-control">
+                <option disabled selected>Emitter</option>
+                {{#each actualGroupUsers}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="messageRecipient" placeholder="Recipient" class="form-control">
+                <option disabled selected>Recipient</option>
+                {{#each groups}}
+                    <optgroup label="{{name}}">
+                    {{#each users}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                    </optgroup>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" name="messageSubject" placeholder="Message subject" class="form-control" />
+        </div>
+        <div class="form-group">
+            <textarea name="messageBody" rows="10" class="form-control"></textarea>
+        </div>
+        <div class="form-group pull-right">
+            <button type="submit" class="btn btn-success">Send</button>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</template>

@@ -1,0 +1,43 @@
+{
+    "superuser": {
+        "login": "superadmin",
+        "password": "superadmin"
+    },
+    "public": {
+        "users": {
+            "1": {"id": "1", "name": "Animator 1"},
+            "2": {"id": "2", "name": "Animator 2"},
+            "3": {"id": "3", "name": "PDG"},
+            "4": {"id": "4", "name": "Secretary"},
+            "5": {"id": "5", "name": "Journalist 1"},
+            "6": {"id": "6", "name": "Journalist 2"}
+        },
+        "loggedUser": {"id": "1", "name": "Animator 1"},
+        "actualGroup": {
+            "name": "Animator",
+            "color": "red",
+            "users": [
+                {"id": "1", "name": "Animator 1"},
+                {"id": "2", "name": "Animator 2"}
+            ]
+        },
+        "groups": [
+            {
+                "name": "Entreprise",
+                "color": "red",
+                "users": [
+                    {"id": "3", "name": "PDG"},
+                    {"id": "4", "name": "Secretary"}
+                ]
+            },
+            {
+                "name": "Press",
+                "color": "red",
+                "users": [
+                    {"id": "5", "name": "Journalist 1"},
+                    {"id": "6", "name": "Journalist 2"}
+                ]
+            }
+        ]
+    }
+}

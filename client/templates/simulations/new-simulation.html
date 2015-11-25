@@ -1,0 +1,21 @@
+<template name="newSimulation">
+    <h1>New Simulation</h1>
+    {{#autoForm collection="Simulation" id="newSimulation" type="insert"}}
+        <div class="form-group">
+            {{> afQuickField name='name'}}
+        </div>
+        <div class="form-group">
+            {{> afQuickField name='slug'}}
+        </div>
+        <div class="form-group">
+            {{> afQuickField name='startDate'}}
+        </div>
+        <div class="form-group">
+            {{> afQuickField name='endDate'}}
+        </div>
+        <div class="form-group pull-right">
+            <button type="submit" class="btn btn-success">Create</button>
+        </div>
+        <div class="clearfix"></div>
+    {{/autoForm}}
+</template>
