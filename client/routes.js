@@ -18,6 +18,15 @@ loggedOnlyRoutes.route('/', {
     },
 });
 
+loggedOnlyRoutes.route('/:simulationSlug', {
+    name: 'simulation',
+    action() {
+        BlazeLayout.render('mainLayout', {components: [
+            {name: 'simulation'},
+        ]});
+    },
+});
+
 FlowRouter.route('/', {
     name: 'homepage',
     triggersEnter: [function(context, redirect) {
