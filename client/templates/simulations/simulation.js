@@ -1,6 +1,6 @@
 Template.simulation.onCreated(() => {
     const slug = FlowRouter.getParam('simulationSlug');
-    this.simulation = Simulation.findOne({slug});
+    this.simulation = SimulationService.findBySlug(slug);
 
     if (!this.simulation) {
         FlowRouter.go('simulations');

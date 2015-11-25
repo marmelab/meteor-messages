@@ -1,0 +1,25 @@
+<template name="groups">
+    <h2>All groups of the simulation</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each groups}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{login}}</td>
+                <td>{{password}}</td>
+                <td>
+                    <button class="btn btn-danger" data-id="{{_id}}">Delete</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>

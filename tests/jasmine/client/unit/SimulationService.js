@@ -24,6 +24,18 @@ describe('Simulation Service', () => {
             spyOn(Simulation, 'find').and.returnValue(result);
 
             expect(SimulationService.findAll()).toBe(result);
-        })
+        });
+    });
+
+    describe('findBySlug', () => {
+        it('should filter by slug', () => {
+            const result = {
+                name: 'First simulation',
+                slug: 'first-simulation',
+            };
+            spyOn(Simulation, 'findOne').and.returnValue(result);
+
+            expect(SimulationService.findBySlug('first-simulation')).toBe(result);
+        });
     });
 });

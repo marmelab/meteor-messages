@@ -1,9 +1,9 @@
 Meteor.subscribe('groups');
 
 GroupService = {
-    findBySimulation(simulationId) {
+    findBySimulation(simulation) {
         return Group.find({
-            simulationId,
+            simulationId: simulation._id,
         });
     },
 };
