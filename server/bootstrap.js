@@ -1,6 +1,9 @@
 Accounts.onCreateUser((options, user) => {
     const superuser = options.superuser || false;
+    const simulationId = options.simulationId || null;
+
     user.superuser = superuser;
+    user.simulationId = simulationId;
 
     if (options.profile) {
         user.profile = options.profile;
