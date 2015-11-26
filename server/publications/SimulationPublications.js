@@ -5,5 +5,11 @@ Meteor.publish('simulations', function() {
         if (user.superuser) {
             return Simulation.find();
         }
+
+        return Simulation.find({_id: user.simulationId});
     }
 })
+
+Meteor.publish('simulations_by_slug', function(slug) {
+    return Simulation.find({slug});
+});

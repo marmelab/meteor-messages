@@ -1,15 +1,11 @@
-loggedOnlyRoutes = FlowRouter.group({
+simulationsRoot = FlowRouter.group({
     prefix: '/simulations',
-    name: 'logged',
-    triggersEnter: [function(context, redirect) {
-        if (!Meteor.userId()) {
-            redirect('homepage');
-        }
-    }],
+    name: 'simulationsRoot',
 });
 
-loggedOnlyRoutes.route('/', {
+simulationsRoot.route('/', {
     name: 'simulations',
+    triggersEnter: [loggedOnly('homepage')],
     action() {
         BlazeLayout.render('mainLayout', {components: [
             {name: 'newSimulation'},
@@ -18,8 +14,19 @@ loggedOnlyRoutes.route('/', {
     },
 });
 
-loggedOnlyRoutes.route('/:simulationSlug', {
+simulationsRoot.route('/:simulationSlug/login', {
+    name: 'simulation-login',
+    triggersEnter: [unloggedOnly('simulations')],
+    action() {
+        BlazeLayout.render('loginLayout', {components: [
+            {name: 'simulationLogin'},
+        ]});
+    },
+});
+
+simulationsRoot.route('/:simulationSlug', {
     name: 'simulation',
+    triggersEnter: [loggedOnly('homepage')],
     action() {
         BlazeLayout.render('mainLayout', {components: [
             {name: 'simulation'},
@@ -29,13 +36,11 @@ loggedOnlyRoutes.route('/:simulationSlug', {
 
 FlowRouter.route('/', {
     name: 'homepage',
-    triggersEnter: [function(context, redirect) {
-        if(Meteor.userId()) {
-            redirect('simulations');
-        }
-    }],
+    triggersEnter: [unloggedOnly('simulations')],
     action() {
-        BlazeLayout.render('login');
+        BlazeLayout.render('loginLayout', {components: [
+            {name: 'login'},
+        ]});
     },
 });
 

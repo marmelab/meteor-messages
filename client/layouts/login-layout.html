@@ -1,0 +1,9 @@
+<template name="loginLayout">
+    <body id="login">
+        <div class="container">
+            {{#each components}}
+                {{>Template.dynamic template=name}}
+            {{/each}}
+        </div>
+    </body>
+</template>
