@@ -8,6 +8,8 @@ Meteor.publish('simulations', function() {
 
         return Simulation.find({_id: user.simulationId});
     }
+
+    return this.ready();
 })
 
 Meteor.publish('simulations_by_slug', function(slug) {

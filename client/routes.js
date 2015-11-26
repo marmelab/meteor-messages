@@ -5,7 +5,7 @@ simulationsRoot = FlowRouter.group({
 
 simulationsRoot.route('/', {
     name: 'simulations',
-    triggersEnter: [loggedOnly('homepage')],
+    triggersEnter: [authenticatedOnly('homepage')],
     action() {
         BlazeLayout.render('mainLayout', {components: [
             {name: 'newSimulation'},
@@ -16,7 +16,7 @@ simulationsRoot.route('/', {
 
 simulationsRoot.route('/:simulationSlug/login', {
     name: 'simulation-login',
-    triggersEnter: [unloggedOnly('simulations')],
+    triggersEnter: [anonymousOnly('simulations')],
     action() {
         BlazeLayout.render('loginLayout', {components: [
             {name: 'simulationLogin'},
@@ -26,7 +26,7 @@ simulationsRoot.route('/:simulationSlug/login', {
 
 simulationsRoot.route('/:simulationSlug', {
     name: 'simulation',
-    triggersEnter: [loggedOnly('homepage')],
+    triggersEnter: [authenticatedOnly('homepage')],
     action() {
         BlazeLayout.render('mainLayout', {components: [
             {name: 'simulation'},
@@ -36,7 +36,7 @@ simulationsRoot.route('/:simulationSlug', {
 
 FlowRouter.route('/', {
     name: 'homepage',
-    triggersEnter: [unloggedOnly('simulations')],
+    triggersEnter: [anonymousOnly('simulations')],
     action() {
         BlazeLayout.render('loginLayout', {components: [
             {name: 'login'},

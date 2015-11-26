@@ -1,10 +1,10 @@
-loggedOnly = (redirectRoute) => (context, redirect) => {
+authenticatedOnly = (redirectRoute) => (context, redirect) => {
     if (!Meteor.userId()) {
         redirect(redirectRoute);
     }
 };
 
-unloggedOnly = (redirectRoute) => (context, redirect) => {
+anonymousOnly = (redirectRoute) => (context, redirect) => {
     if(Meteor.userId()) {
         redirect(redirectRoute);
     }
