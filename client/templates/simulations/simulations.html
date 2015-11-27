@@ -8,15 +8,21 @@
                     <th>Slug</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each simulations}}
                 <tr>
                     <td>{{name}}</td>
-                    <td>{{slug}}</td>
+                    <td><a href="/simulations/{{slug}}/">{{slug}}</a></td>
                     <td>{{startDate}}</td>
                     <td>{{endDate}}</td>
+                    <td>
+                        <a href="/simulations/{{slug}}/" class="btn btn-default">
+                            Manage
+                        </a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>
