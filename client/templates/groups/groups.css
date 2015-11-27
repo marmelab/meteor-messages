@@ -1,0 +1,7 @@
+.del-user {
+    cursor: pointer;
+    text-decoration: none;
+}
+.del-user:hover {
+    text-decoration: inherit;
+}

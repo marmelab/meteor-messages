@@ -23,6 +23,7 @@ Template.newGroup.events({
             login,
             password,
             simulationId: this.simulation._id,
+            users: [],
         });
 
         event.target.name.value = '';

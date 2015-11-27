@@ -6,6 +6,7 @@
                 <th>Name</th>
                 <th>Login</th>
                 <th>Password</th>
+                <th>Users</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
@@ -15,11 +16,57 @@
                 <td>{{name}}</td>
                 <td>{{login}}</td>
                 <td>{{password}}</td>
-                <td>
-                    <button class="btn btn-danger" data-id="{{_id}}">Delete</button>
+                <td>{{> groupUsers users=users groupId=_id}}</td>
+                <td class="form-inline">
+                    <div class="input-group">
+                        <input type="text" class="form-control new-user-input"
+                               placeholder="New user" data-group="{{_id}}" />
+                        <div class="input-group-btn">
+                            <button class="btn btn-success new-user" data-group="{{_id}}">Add</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger delete" data-group="{{_id}}">Delete</button>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
+</template>
+
+<template name="groupUsers">
+    {{#if users}}
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle"
+                    type="button"
+                    id="users-dpwn"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="true">
+                Users <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="users-dpwn">
+                {{#each users}}
+                    {{> groupUser user=this groupId=../groupId}}
+                {{/each}}
+            </ul>
+        </div>
+    {{else}}
+        Empty
+    {{/if}}
+</template>
+
+<template name="groupUser">
+    <li>
+        <a onclick="javascript:;">
+            <div class="pull-left">{{user}}</div>
+            <div class="pull-right">
+                <a class="del-user"
+                   data-group="{{groupId}}"
+                   data-user="{{user}}">
+                   &times;
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </li>
 </template>

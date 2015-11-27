@@ -32,7 +32,9 @@ Template.simulationLogin.events({
                 Session.set('loginErrors', err.reason);
             } else {
                 Session.set('loginErrors', null);
-                FlowRouter.go('/simulations');
+                FlowRouter.go('messages', {
+                    simulationSlug: simulation.slug,
+                });
             }
         });
 

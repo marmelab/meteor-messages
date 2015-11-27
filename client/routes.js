@@ -24,6 +24,16 @@ simulationsRoot.route('/:simulationSlug/login', {
     },
 });
 
+simulationsRoot.route('/:simulationSlug/messages', {
+    name: 'messages',
+    action() {
+        BlazeLayout.render('mainLayout', {components: [
+            {name: 'newMessage'},
+            {name: 'messages'},
+        ]});
+    },
+});
+
 simulationsRoot.route('/:simulationSlug', {
     name: 'simulation',
     triggersEnter: [authenticatedOnly('homepage')],
@@ -40,16 +50,6 @@ FlowRouter.route('/', {
     action() {
         BlazeLayout.render('loginLayout', {components: [
             {name: 'login'},
-        ]});
-    },
-});
-
-FlowRouter.route('/messages', {
-    name: 'messages',
-    action() {
-        BlazeLayout.render('mainLayout', {components: [
-            {name: 'newMessage'},
-            {name: 'messages'},
         ]});
     },
 });
