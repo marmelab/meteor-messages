@@ -3,6 +3,10 @@
         "login": "superadmin",
         "password": "superadmin"
     },
+    "animator": {
+        "login": "animator",
+        "password": "animator"
+    },
     "public": {
         "users": {
             "1": {"id": "1", "name": "Animator 1"},
